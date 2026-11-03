@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Place Daycare Inc. | Brooklyn, NY</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Multi-Color Palette & Modern Variables */
+        :root {
+            --primary-blue: #0077FE;
+            --primary-orange: #FF6B35;
+            --primary-green: #2EC4B6;
+            --primary-purple: #7209B7;
+            --primary-yellow: #FFB703;
+            --dark-navy: #0A192F;
+            --light-bg: #F4F7FE;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Top Announcement Bar */
+        .top-bar {
+            background: var(--primary-purple);
+            color: var(--white);
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Navigation Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-family: 'Fredoka One', cursive;
+            font-size: 26px;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span { color: var(--primary-orange); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-navy);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary-green); }
+
+        .btn-call {
+            background: var(--primary-orange);
+            color: var(--white);
+            padding: 10px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-call:hover { background: #e05523; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0,119,254,0.15), rgba(46,196,182,0.15)), url('https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=1200&q=80') center/cover;
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 3px dashed var(--primary-yellow);
+        }
+
+        /* User Specific Welcome Intro */
+        .welcome-badge {
+            display: inline-block;
+            background: var(--primary-yellow);
+            color: var(--dark-navy);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 40px;
+            color: var(--dark-navy);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .btn-tour {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 14px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,119,254,0.4);
+            transition: 0.3s;
+        }
+
+        .btn-tour:hover { background: #0056c6; transform: translateY(-2px); }
+
+        /* Sections Styling */
+        .section {
+            max-width: 1200px;
+            margin: 70px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Fredoka One', cursive;
+            font-size: 34px;
+            margin-bottom: 40px;
+            color: var(--dark-navy);
+        }
+
+        /* Programs Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            border-top: 6px solid var(--primary-blue);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .card.orange { border-top-color: var(--primary-orange); }
+        .card.green { border-top-color: var(--primary-green); }
+        .card.purple { border-top-color: var(--primary-purple); }
+
+        .card-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--dark-navy);
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item img:hover { transform: scale(1.03); }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--white);
+            padding: 50px 20px;
+            border-radius: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .review-card {
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--primary-yellow);
+        }
+
+        .review-card p { font-style: italic; color: #444; }
+        .review-card h5 { margin-top: 10px; color: var(--dark-navy); font-weight: 700; }
+
+        /* Modal Popup */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 25, 47, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 480px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 26px;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .form-group { margin-bottom: 15px; }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--dark-navy);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+
+        .form-group input:focus { border-color: var(--primary-blue); outline: none; }
+
+        /* Footer */
+        footer {
+            background: var(--dark-navy);
+            color: var(--white);
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 60px;
+        }
+
+        footer p { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        🎉 Now Enrolling for 3K Programs & ACS Vouchers Accepted! Call Today: (917) 322-9954
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fa-solid fa-child-reaching"></i> Magic Place <span>Daycare</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Location</a></li>
+            </ul>
+            <a href="tel:+19173229954" class="btn-call"><i class="fa-solid fa-phone"></i> Call Us</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <!-- Customized Intro Greeting -->
+            <span class="welcome-badge">Welcome Parent!</span>
+            <h1>Have a Welcome to Magic Place Daycare Inc.</h1>
+            <p>Brooklyn’s trusted home for safe, fun, and educational early learning. We nurture young minds with free NYC 3K programs, toddler care, and full ACS voucher support.</p>
+            <button class="btn-tour" onclick="openModal()"><i class="fa-solid fa-calendar-check"></i> Schedule a Free Tour</button>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="section" id="programs">
+        <h2 class="section-title">Our Learning Programs</h2>
+        <div class="cards-grid">
+            <div class="card blue">
+                <div class="card-icon" style="color: var(--primary-blue);"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h3>Free NYC 3K Program</h3>
+                <p>High-quality early childhood education sponsored by NYC to prepare 3-year-olds for kindergarten success.</p>
+            </div>
+            <div class="card orange">
+                <div class="card-icon" style="color: var(--primary-orange);"><i class="fa-solid fa-id-card"></i></div>
+                <h3>ACS Vouchers Accepted</h3>
+                <p>We proud support families in our Brooklyn community by accepting ACS child care assistance vouchers.</p>
+            </div>
+            <div class="card green">
+                <div class="card-icon" style="color: var(--primary-green);"><i class="fa-solid fa-baby"></i></div>
+                <h3>Infant & Toddler Care</h3>
+                <p>Safe, clean, and cheerful classrooms equipped with engaging toys and interactive learning activities.</p>
+            </div>
+            <div class="card purple">
+                <div class="card-icon" style="color: var(--primary-purple);"><i class="fa-solid fa-palette"></i></div>
+                <h3>Arts & Creative Play</h3>
+                <p>Daily games, music sessions, and creative arts that spark imagination and social development in kids.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="section" id="gallery">
+        <h2 class="section-title">Classroom & Fun Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1576489922597-a7732a396263?auto=format&fit=crop&w=500&q=80" alt="Playroom"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=500&q=80" alt="Reading Corner"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=500&q=80" alt="Toys and Games"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80" alt="Learning Activities"></div>
+        </div>
+    </section>
+
+    <!-- Parent Reviews Section -->
+    <section class="section" id="reviews">
+        <h2 class="section-title">What Brooklyn Parents Say</h2>
+        <div class="testimonials">
+            <div class="review-card">
+                <p>"They truly care for these babies and have taught them so much! Clean environment and wonderful staff."</p>
+                <h5>— Parent Highlight (Google Review)</h5>
+            </div>
+            <div class="review-card">
+                <p>"My child loves going to Magic Place Daycare every morning. The 3K program is incredible!"</p>
+                <h5>— Brooklyn Parent</h5>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section class="section" id="contact">
+        <h2 class="section-title">Visit Our Location</h2>
+        <div style="background: white; padding: 35px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center;">
+            <p style="font-size: 18px; margin-bottom: 12px;"><i class="fa-solid fa-location-dot" style="color: var(--primary-orange);"></i> <strong>Address:</strong> 2362 65th St, Brooklyn, NY 11204, United States</p>
+            <p style="font-size: 18px; margin-bottom: 12px;"><i class="fa-solid fa-phone" style="color: var(--primary-blue);"></i> <strong>Phone:</strong> +1 917-322-9954</p>
+            <p style="font-size: 18px;"><i class="fa-solid fa-clock" style="color: var(--primary-green);"></i> <strong>Hours:</strong> Mon - Fri: 8:00 AM - 6:00 PM</p>
+        </div>
+    </section>
+
+    <!-- Tour Booking Modal -->
+    <div class="modal" id="tourModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3 style="margin-bottom: 20px; color: var(--dark-navy); font-family: 'Fredoka One', cursive; font-size: 24px;">Schedule a Daycare Tour</h3>
+            <form onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label>Parent Full Name</label>
+                    <input type="text" required placeholder="e.g. Sarah Johnson">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" required placeholder="(917) 000-0000">
+                </div>
+                <div class="form-group">
+                    <label>Child's Age</label>
+                    <select required>
+                        <option value="">Select Age</option>
+                        <option value="infant">Infant (Under 2 years)</option>
+                        <option value="3k">3K Program (3 years)</option>
+                        <option value="4k">4K / Pre-K</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Visit Date</label>
+                    <input type="date" required>
+                </div>
+                <button type="submit" class="btn-tour" style="width: 100%; margin-top: 10px;">Submit Tour Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Magic Place Daycare Inc. All Rights Reserved.</p>
+        <p style="font-size: 14px; opacity: 0.8;">2362 65th St, Brooklyn, NY 11204 | Phone: (917) 322-9954</p>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        function openModal() {
+            document.getElementById('tourModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('tourModal').style.display = 'none';
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            alert('Thank you! Your tour request for Magic Place Daycare Inc. has been submitted. We will contact you shortly.');
+            closeModal();
+        }
+
+        // Close popup when clicking outside the box
+        window.onclick = function(event) {
+            var modal = document.getElementById('tourModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+      </html>
+  
